@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+Pro:wght@200;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+Adlam+Unjoined:wght@700&display=swap');
 *{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .width-all-file{
     width: 1800px;
