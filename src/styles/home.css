@@ -75,6 +75,11 @@
     background-color: black;
     right: 0;
     top: 0;
+}.containorShows1{
+    display: none;
+}
+.containorClickedImage{
+    height: 500px;
 }
 i{
     color: #fff;

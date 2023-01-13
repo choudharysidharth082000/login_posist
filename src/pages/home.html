@@ -34,12 +34,15 @@
     <!-- Loader Containor -->
     <!-- Hello world
     <button id="logout">Log Out</button> -->
-    <div class="containorHome w-full screen-height bg-black">
+    <div class="containorHome w-full bg-black">
       <div
         class="containorBackdrop position-relative w-full heightBackDrop"
         id="containorBackdrop"
       >
+        <!-- Replaced the Below code with the navar Component -->
         <script src="/src/components/Navbar.js"></script>
+        <!-- End  -->
+
         <!-- Navbar  -->
         <!-- <div class="navbar w-full p-3 d-flex justify-content-between">
           <div class="logo">
@@ -86,7 +89,10 @@
                 >
                   <p>choudharysidharth082000@gmail.com</p>
                 </div>
-                <button id="logout1" class="w-full p-2 text-white outline-none mainColorbg">
+                <button
+                  id="logout1"
+                  class="w-full p-2 text-white outline-none mainColorbg"
+                >
                   Sign Out
                 </button>
               </div>
@@ -118,6 +124,49 @@
         <h1 class="text-white font-weight-bold">Netflix Originals</h1>
         <div id="containorShows" class="containorShows w-full p-3">
           <!-- Images will be dynamically injected  -->
+        </div>
+
+        <div
+          id="containorClicked"
+          class="containorMatch p-3 w-100"
+          style="display: none"
+        >
+          <div
+            class="containorClickedInside w-100 p-3 d-flex justify-content-start align-items-center"
+          >
+            <!-- Iframe             -->
+            <iframe
+              id="iframe"
+              width="660"
+              height="415"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+
+            <div
+              class="containorInformation p-5 d-flex flex-column justify-content-start w-50"
+            >
+              <h2 id="cardMovieContentHeader" class="text-white text-bold px-3">
+                This is the title
+              </h2>
+              <p id="cardMovieContent" class="text-white px-3">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero
+                eaque dolores, modi quaerat fuga illo obcaecati itaque incidunt
+                omnis provident nulla quam reiciendis eveniet pariatur suscipit
+                nihil quod maxime molestiae doloribus, recusandae cum error
+                voluptate ratione praesentium. Voluptatem error, laboriosam
+                asperiores dignissimos officiis earum dolore, facilis possimus
+                nisi sed maxime!
+              </p>
+              <div
+                id="containorShowsAction1"
+                class="containorShows w-full p-3 mb-1"
+              ></div>
+            </div>
+            <!-- End -->
+          </div>
         </div>
 
         <h1 class="text-white font-weight-bold mt-4">Discover</h1>
