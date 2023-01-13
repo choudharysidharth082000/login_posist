@@ -67,7 +67,7 @@
 
         <div id="sidebar" class="sidebar d-flex flex-column">
           <div
-            class="containorHeaderClose w-100 p-4 d-flex px-3 justify-content-end"
+            class="containorHeaderClose w-full p-4 d-flex px-3 justify-content-end"
           >
             <div class="closeIcon">
               <i id="iconClose" class="fas fa-times text-white"></i>
@@ -128,13 +128,14 @@
 
         <div
           id="containorClicked"
-          class="containorMatch p-3 w-100"
+          class="containorMatch p-3 w-100 pr-0"
           style="display: none"
         >
           <div
-            class="containorClickedInside w-100 p-3 d-flex justify-content-start align-items-center"
+            class="containorClickedInside w-100 p-3 d-flex justify-content-center align-items-center position-relative"
           >
             <!-- Iframe             -->
+            <i id="closeShowCase" class="iconClicked fa-sharp fa-solid fa-circle-xmark"></i>
             <iframe
               id="iframe"
               width="660"

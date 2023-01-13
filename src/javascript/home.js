@@ -16,6 +16,7 @@ const cardMovieContent = document.getElementById("cardMovieContent");
 const cardMovieContentHeader = document.getElementById(
   "cardMovieContentHeader"
 );
+const closeShowcase = document.getElementById("closeShowCase");
 const iframe = document.getElementById("iframe");
 console.log("This is the iframe", iframe);
 console.log(bannerHeader);
@@ -170,4 +171,11 @@ const clickedImage = (item) => {
         containorShowsAction1.appendChild(card);
       });
     });
+    
 };
+
+
+closeShowcase.addEventListener("click", (e) => {
+  console.log("Hello world")
+  containorClicked.style.display = "none";
+});
