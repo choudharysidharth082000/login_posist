@@ -79,7 +79,7 @@ window.addEventListener("load", (event) => {
       return response.json();
     })
     .then((data) => {
-      //adding the background image to the the containor div
+  
       const randomNumber = Math.floor(Math.random() * data.results.length - 1);
       banner.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${data.results[randomNumber].backdrop_path})`;
       //changing the content in the benner Header
