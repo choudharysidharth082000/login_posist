@@ -16,16 +16,14 @@ const cardMovieContent = document.getElementById("cardMovieContent");
 const username = document.getElementById("username");
 const phone = document.getElementById("phone");
 const editProfile = document.getElementById("editProfile");
+const editProfileMain = document.getElementById("editProfileMain");
 const cardMovieContentHeader = document.getElementById(
   "cardMovieContentHeader"
 );
 const avatar = document.getElementById("avatar");
 console.log(avatar);
 
-
 const emailAccount = document.getElementById("emailUser");
-
-
 
 // console.log("Jnrjknvjernvjknrkjnvjkrenkjvnerjkvnrjenvjknre", emailAccount)
 const test = document.getElementById("test");
@@ -61,13 +59,13 @@ const truncate = (string, n) => {
 };
 
 window.addEventListener("load", (event) => {
+  // document.getAttribute("*").style.transition = "all 2s ease in";
   if (
     window.location.pathname == "/src/pages/home.html" &&
     window.localStorage.getItem("token") == null
   ) {
     window.location.href = "/src/pages/login.html";
-  }
-  else{
+  } else {
     console.log(window.localStorage.getItem("email"));
     emailAccount.innerHTML = window.localStorage.getItem("email");
   }
@@ -186,14 +184,11 @@ const clickedImage = (item) => {
         containorShowsAction1.appendChild(card);
       });
     });
-    
 };
-
 
 closeShowcase.addEventListener("click", (e) => {
   containorClicked.style.display = "none";
 });
-
 
 //finding the user
 const findUser = (username) => {
@@ -208,7 +203,6 @@ const findUser = (username) => {
     return false;
   }
 };
-
 
 const validateInput = (val, regex) => {
   return val.match(regex);
@@ -238,8 +232,6 @@ username.addEventListener("input", (e) => {
   }
 });
 
-
-
 //phone number validations
 phone.addEventListener("input", (e) => {
   if (validateInput(phone.value, phoneRegex)) {
@@ -254,22 +246,43 @@ phone.addEventListener("input", (e) => {
 
 console.log(editProfile);
 
-editProfile.addEventListener('submit', (e)=>
-{
+editProfile.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log("Edit Profile");
   window.localStorage.setItem("email", username.value);
   alert("Data Updated");
   window.location.reload();
-})
+});
 
+var opened = [false];
 
+const toggleOPened = () => {
+  if (opened[0]) {
+    opened[0] = false;
+  } else {
+    opened[0] = true;
+  }
+};
 
+editProfileMain.addEventListener("click", (e) => {
+  toggleOPened();
+  console.log(opened[0]);
+  if (opened[0]) {
+    editProfile.style.transition = "2s ease in";
+    editProfile.style.display = "block";
+    editProfile.classList.add("d-flex");
+    editProfile.classList.add("justify-content-center");
+    editProfile.classList.add("flex-column");
+  } else {
+    editProfile.style.transition = "1s ease in";
+    editProfile.classList.remove("d-flex");
+    editProfile.classList.remove("justify-content-center");
+    editProfile.classList.remove("flex-column");
+    editProfile.style.display = "none";
+  }
+});
 
-
-
-
-
+// d-flex flex-column justify-content-start
 
 // console.log(enable);
 

@@ -78,10 +78,10 @@
                 </button>
               </div>
             </div>
-            <button class="w-100 border border-white rounded-sm py-2 mt-5  text-white bg-transparent">Edit Profile</button>
+            <button id="editProfileMain" class="w-100 border border-white rounded-sm py-2 mt-5  text-white bg-transparent">Edit Profile</button>
 
-            <form action="" id="editProfile" class="w-100 p-3 d-flex flex-column justify-content-start mt-5">
-              <h4 class="text-white font-weight-bold">Edit Your Data</h4>
+            <form action="" id="editProfile" class="w-100 p-3 mt-5" style="display: none;">
+              <!-- <h4 class="text-white">Edit Your Data</h4> -->
               <input id="username" type="text" class="input px-3 w-full py-3 text-white rounded-sm inputBackground outline-none mt-4" placeholder="username" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$|^[a-zA-Z0-9+_.-]+$" required>              
               <input id="phone" type="text" class="input px-3 w-full py-3 text-white rounded-sm inputBackground outline-none mt-4" placeholder="mobile number" pattern="^[0-9]{10}$" required>              
               <p id="errorUsername" class="mainColor p-1 mt-1 mb-1" style="display:none;"></p> 
@@ -95,7 +95,7 @@
           class="containorHeaderFull p-lg-5 py-4 d-flex justify-content-start"
           id="containorHeaderFull"
         >
-          <div class="containorHeader p-3">
+          <div class="containorHeader p-3">h
             <h1 class="text-white font-weight-bold mb-3" id="headerWelcome">
               The Last Kingdom
             </h1>
