@@ -13,17 +13,32 @@ const showMore = document.getElementById("showMore");
 const containorClicked = document.getElementById("containorClicked");
 const containorShowsAction1 = document.getElementById("containorShowsAction1");
 const cardMovieContent = document.getElementById("cardMovieContent");
+const username = document.getElementById("username");
+const phone = document.getElementById("phone");
+const editProfile = document.getElementById("editProfile");
 const cardMovieContentHeader = document.getElementById(
   "cardMovieContentHeader"
 );
+const avatar = document.getElementById("avatar");
+console.log(avatar);
+
+
+const emailAccount = document.getElementById("emailUser");
+
+
+
+// console.log("Jnrjknvjernvjknrkjnvjkrenkjvnerjkvnrjenvjknre", emailAccount)
+const test = document.getElementById("test");
+const enable = document.getElementById("enable");
 const closeShowcase = document.getElementById("closeShowCase");
 const iframe = document.getElementById("iframe");
-console.log("This is the iframe", iframe);
-console.log(bannerHeader);
 
 logoutButton.addEventListener("click", (e) => {
   e.preventDefault();
-  sidebar.style.width = "575px";
+  sidebar.style.display = "block";
+  sidebar.style.width = "525px";
+  sidebar.classList.add("d-flex");
+  sidebar.classList.add("flex-column");
   //   window.localStorage.removeItem("token");
   //   window.location.href = "/src/pages/login.html";
 });
@@ -34,8 +49,10 @@ logout1.addEventListener("click", (e) => {
 });
 iconClose.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("Hello world");
   sidebar.style.width = "0px";
+  sidebar.classList.remove("d-flex");
+  sidebar.classList.remove("flex-column");
+  sidebar.style.display = "none";
 });
 
 //string truncate method
@@ -44,12 +61,15 @@ const truncate = (string, n) => {
 };
 
 window.addEventListener("load", (event) => {
-  console.log("Loader Started");
   if (
     window.location.pathname == "/src/pages/home.html" &&
     window.localStorage.getItem("token") == null
   ) {
     window.location.href = "/src/pages/login.html";
+  }
+  else{
+    console.log(window.localStorage.getItem("email"));
+    emailAccount.innerHTML = window.localStorage.getItem("email");
   }
 
   //getitng the result from the api
@@ -61,7 +81,6 @@ window.addEventListener("load", (event) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data.results);
       //adding the background image to the the containor div
       const randomNumber = Math.floor(Math.random() * data.results.length - 1);
       banner.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${data.results[randomNumber].backdrop_path})`;
@@ -97,7 +116,6 @@ window.addEventListener("load", (event) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data.results);
       //creating the cards
       data.results.forEach((movie) => {
         const card = document.createElement("div");
@@ -115,8 +133,6 @@ window.addEventListener("load", (event) => {
 const clickedImage = (item) => {
   // getting the id from the attribute
   const id = item.getAttribute("id");
-  console.log(id);
-  console.log(id.split("#@@")[0]);
   //getting the overview from the attribute
   const overview = item.getAttribute("id").split("#@@")[1];
   const title = item.getAttribute("id").split("#@@")[2];
@@ -158,7 +174,6 @@ const clickedImage = (item) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data.results);
       data.results.forEach((movie) => {
         const card = document.createElement("div");
         // adding the id to the card
@@ -176,6 +191,89 @@ const clickedImage = (item) => {
 
 
 closeShowcase.addEventListener("click", (e) => {
-  console.log("Hello world")
   containorClicked.style.display = "none";
 });
+
+
+//finding the user
+const findUser = (username) => {
+  const users = JSON.parse(window.localStorage.getItem("users"));
+  if (users == null) {
+    return;
+  }
+  const user = users.find((user) => user.username == username);
+  if (user) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+
+const validateInput = (val, regex) => {
+  return val.match(regex);
+};
+const usernameRegex = "^[a-zA-Z0-9+_.-]+$";
+const phoneRegex = "^[0-9]{10}$";
+//username validations
+username.addEventListener("input", (e) => {
+  if (findUser(username.value)) {
+    console.log("Username already present", errorUsername);
+    alert("UserName Already Exists");
+    // username.style.border = "2px solid #E50914";
+    errorUsername.style.display = "block";
+    errorUsername.innerHTML = "Username already exists";
+  }
+  // else {
+  //   username.style.border = "none";
+  //   errorUsername.style.display = "none";
+  // }
+  if (validateInput(username.value, usernameRegex)) {
+    username.style.border = "none";
+    errorUsername.style.display = "none";
+  } else {
+    username.style.border = "2px solid #E50914";
+    errorUsername.style.display = "block";
+    errorUsername.innerHTML = "Please enter a valid username";
+  }
+});
+
+
+
+//phone number validations
+phone.addEventListener("input", (e) => {
+  if (validateInput(phone.value, phoneRegex)) {
+    phone.style.border = "none";
+    errorUsername.style.display = "none";
+  } else {
+    phone.style.border = "2px solid #E50914";
+    errorUsername.style.display = "block";
+    errorUsername.innerHTML = "Please enter a valid phone number";
+  }
+});
+
+console.log(editProfile);
+
+editProfile.addEventListener('submit', (e)=>
+{
+  e.preventDefault();
+  console.log("Edit Profile");
+  window.localStorage.setItem("email", username.value);
+  alert("Data Updated");
+  window.location.reload();
+})
+
+
+
+
+
+
+
+
+
+// console.log(enable);
+
+// enable.addEventListener("click", (e) => {
+//   console.log("Hello world")
+//   test.disabled = false;
+// });

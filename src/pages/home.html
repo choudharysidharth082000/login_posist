@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/home.css" />
     <script defer src="/src/javascript/home.js"></script>
+    <script src="/src/javascript/sidebarComponent.js"></script>
   </head>
   <body class="main position-relative">
     <!-- Loader Containor -->
@@ -43,34 +44,13 @@
         <script src="/src/components/Navbar.js"></script>
         <!-- End  -->
 
-        <!-- Navbar  -->
-        <!-- <div class="navbar w-full p-3 d-flex justify-content-between">
-          <div class="logo">
-            <img
-              class="image-logo-netflix"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"
-              alt=""
-            />
-          </div>
-          <div class="navbar-right d-flex">
-            <div class="navbar-right-item">
-              <img
-                id="logout"
-                src="../../public/images/Netflix-avatar.png"
-                class="notification"
-                alt="notifications"
-              />
-            </div>
-          </div>
-        </div> -->
-        <!-- End Navbar -->
-
-        <div id="sidebar" class="sidebar d-flex flex-column">
+        <div id="sidebar" class="sidebar" style="display: none;">
           <div
-            class="containorHeaderClose w-full p-4 d-flex px-3 justify-content-end"
+            class="containorHeaderClose border-right w-full p-4 d-flex px-3 justify-content-end"
           >
             <div class="closeIcon">
               <i id="iconClose" class="fas fa-times text-white"></i>
+              <!-- Disbaled Button -->
             </div>
           </div>
           <div class="containorEditProfile w-100 p-3">
@@ -78,16 +58,17 @@
             <div class="containorTwo d-flex">
               <div class="containorIcon w-25">
                 <img
+    
                   class="avatar"
                   src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
                   alt=""
                 />
               </div>
               <div class="containorData w-75 p-1 d-flex flex-column">
-                <div
-                  class="containorUserEmail p-2 d-flex justify-content-between"
-                >
-                  <p>choudharysidharth082000@gmail.com</p>
+                <div class="containorUserEmail w-full p-2 d-flex justify-content-center align-items-center">
+                  <h5 id="emailUser" class="text-white
+                  font-weight-bold">User Name</h5>
+
                 </div>
                 <button
                   id="logout1"
@@ -97,6 +78,17 @@
                 </button>
               </div>
             </div>
+            <button class="w-100 border border-white rounded-sm py-2 mt-5  text-white bg-transparent">Edit Profile</button>
+
+            <form action="" id="editProfile" class="w-100 p-3 d-flex flex-column justify-content-start mt-5">
+              <h4 class="text-white font-weight-bold">Edit Your Data</h4>
+              <input id="username" type="text" class="input px-3 w-full py-3 text-white rounded-sm inputBackground outline-none mt-4" placeholder="username" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$|^[a-zA-Z0-9+_.-]+$" required>              
+              <input id="phone" type="text" class="input px-3 w-full py-3 text-white rounded-sm inputBackground outline-none mt-4" placeholder="mobile number" pattern="^[0-9]{10}$" required>              
+              <p id="errorUsername" class="mainColor p-1 mt-1 mb-1" style="display:none;"></p> 
+              
+              <button class="w-full py-3 mt-4 outline-none mainColorbg text-white rounded-sm" type="submit">Edit The Profile</button>
+
+            </form>
           </div>
         </div>
         <div
@@ -175,6 +167,8 @@
           <!-- Images will be dynamically injected  -->
         </div>
       </div>
+    
+      
     </div>
   </body>
 </html>
